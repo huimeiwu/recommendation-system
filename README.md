@@ -1,4 +1,4 @@
-# Ingredient-Level Recommendation System for Cold-Start Users
+# Two-Tier Recommendation Recommendation System for Cold-Start Users
 
 This project builds a **two-tier recommendation system** for a dessert brand expanding into the U.S. market. Since many customers are unfamiliar with the dessert style and have no prior interaction history, we focused on helping new users discover items they might enjoy through a structured ingredient-based approach.
 
