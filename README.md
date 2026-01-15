@@ -25,8 +25,8 @@ Instead of starting with full menu items, we first model user preferences at the
 
 The second layer connects ingredient preferences to actual menu items. This layer provides a lightweight mapping from ingredient preferences to menu items and serves as contextual background for the overall system.
 
-- Used **ingredient-overlap scoring** to rank menu items based on preferred ingredients.
-- Implemented **TF-IDF similarity** on product descriptions to build a fallback for cold-start cases (e.g., new users or sparse ingredients).
+- Used ingredient-overlap scoring to rank menu items based on preferred ingredients.
+- Implemented TF-IDF similarity on product descriptions to build a fallback for cold-start cases (e.g., new users or sparse ingredients).
 - Exposed APIs to downstream systems for UI rendering and experimentation teams.
 
 This modular design helps the system recommend new or unfamiliar products by leveraging latent preferences over ingredients, which are more transferable and easier to interpret.
@@ -41,7 +41,7 @@ This modular design helps the system recommend new or unfamiliar products by lev
 
 ## Collaboration Context
 
-This was developed during an internship at **JoblogicX**, working with a cross-functional team of ML engineers, data engineers, and product designers. I focused on the ingredient-level layer and ensured seamless integration into downstream systems.
+This was developed during an internship at JoblogicX, working with a cross-functional team of ML engineers, data engineers, and product designers. I focused on the ingredient-level layer and ensured seamless integration into downstream systems.
 
 
 
