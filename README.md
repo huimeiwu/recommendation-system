@@ -21,7 +21,7 @@ Instead of starting with full menu items, we first model user preferences at the
 - Stored learned user and ingredient embeddings in BigQuery to support efficient downstream retrieval and analysis.
 - Evaluated model quality using precision@5 (0.63) and ingredient coverage (90%), prioritizing discovery and diversity for cold-start users.
 
-#### **Product-Level Mapping & Recommendation**
+#### **Product-Level Mapping & Recommendation (System Context)**
 
 The second layer connects ingredient preferences to actual menu items. This layer provides a lightweight mapping from ingredient preferences to menu items and serves as contextual background for the overall system.
 
