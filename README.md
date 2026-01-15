@@ -11,15 +11,19 @@ Note: For privacy reasons, the raw POS sales data used to generate ingredient pr
 We designed a **layered recommendation pipeline** to improve flexibility, interpretability, and cold-start performance:
 
 #### **Ingredient-Level Preference Modeling**
+
+My primary contribution focused on the ingredient-level preference modeling layer, including data simulation, representation learning, and evaluation under sparse and cold-start conditions.
+
 Instead of starting with full menu items, we first model user preferences at the ingredient level (e.g., boba, taro, grass jelly). This enables the system to capture shared signals across products that use similar components.  
 
-- Built a synthetic user-ingredient interaction matrix by simulating ratings using POS frequencies and MovieLens-like sampling.
-- Trained a collaborative filtering model using **ALS (Alternating Least Squares)** in PySpark.
-- Stored resulting user and ingredient embeddings in BigQuery for fast retrieval and analysis.
-- Evaluated using precision@5 (0.63) and coverage (90%) to ensure both accuracy and diversity.
+- Designed a synthetic user–ingredient interaction matrix to approximate realistic preference signals under limited explicit feedback, using POS frequencies and       MovieLens-inspired sampling.
+- Trained an ALS-based collaborative filtering model in PySpark to learn stable ingredient embeddings under high sparsity.
+- Stored learned user and ingredient embeddings in BigQuery to support efficient downstream retrieval and analysis.
+- Evaluated model quality using precision@5 (0.63) and ingredient coverage (90%), prioritizing discovery and diversity for cold-start users.
 
 #### **Product-Level Mapping & Recommendation**
-The second layer connects ingredient preferences to actual menu items.
+
+The second layer connects ingredient preferences to actual menu items. This layer provides a lightweight mapping from ingredient preferences to menu items and serves as contextual background for the overall system.
 
 - Used **ingredient-overlap scoring** to rank menu items based on preferred ingredients.
 - Implemented **TF-IDF similarity** on product descriptions to build a fallback for cold-start cases (e.g., new users or sparse ingredients).
